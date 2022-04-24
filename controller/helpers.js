@@ -1,4 +1,21 @@
-function isPlayerMoveValid(handIndex) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function isPlayerMoveValid(handIndex) {
     playerCard = model.playerHand[handIndex]
     showingCard = getShowingCard()
 
@@ -23,4 +40,4 @@ function isOverDiscardPile(cardImage) {
     if (cardImage.y() < 230 || cardImage.y() > 270)
         return false
     return true
-}
+}*/

@@ -1,4 +1,44 @@
-function handleDragCardStart(event) {
+
+function handleHit(){
+    dealCardToPlayer()
+    render()
+}
+
+function handlestay(){
+    render()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function handleDragCardStart(event) {
     let cardImage = event.target // Gets a reference to the card being dragged
     cardImage.moveToTop(); // Make sure our card stays above any other cards currently in play
 
@@ -39,4 +79,4 @@ function handleDeckClick() {
 function handleComputerTurn() {
     compPlay()
     render()
-}
+} */
