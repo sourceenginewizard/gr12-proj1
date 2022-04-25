@@ -65,7 +65,23 @@ function shuffle(cards) {
 }
 
 // ------------- Helper Functions - Used to more easily access data in the model ------------ //
+function getScore(hand) {
+    let total = 0
+    for (let i = 0; i < hand.length; i++) {
+        let value = hand[i].value
 
+        if (value == "Jack"|| value == "Queen"|| value=="King"){
+            total += 10
+        }
+         else if(value=="Ace") {
+            total++
+         }
+         else {
+            total += value;
+         }  
+    }
+    return total;
+}
 // Return the top (ie, visible) card of the discard pile
 
 

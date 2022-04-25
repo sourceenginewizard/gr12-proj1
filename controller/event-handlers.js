@@ -1,10 +1,15 @@
 
 function handleHit(){
     dealCardToPlayer()
+    console.log(getScore(model.playerHand))
+    if (getScore(model.playerHand) > 21) {
+        model.state = "playerBust"
+    }
     render()
 }
 
 function handlestay(){
+    compPlay()
     render()
 }
 

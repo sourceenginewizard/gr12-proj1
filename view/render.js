@@ -1,4 +1,5 @@
-const { default: Konva } = require("konva");
+
+
 
 // Set up the stage and layer
 let stage = new Konva.Stage({
@@ -14,25 +15,43 @@ let layer
 function renderChoices(){
     let hittext = new Konva.Text({
         x: stage.width() / 2,
-        y: 15,
+        y: 300,
         text: 'hit',
         fontSize: 30,
         fontFamily: 'Calibri',
         fill: 'green',
     })   
     layer.add(hittext);
+
+    let staytext = new Konva.Text({
+        x: stage.width() / 2,
+        y: 325,
+        text: 'stay',
+        fontSize: 30,
+        fontFamily: 'Calibri',
+        fill: 'red',
+    })
+    layer.add(staytext);
+    hittext.on('click',handleHit)
+    staytext.on('click',handlestay)
+
 }
+
+
 
 function render() {
     stage.destroyChildren() // Remove all objects from the stage
     layer = new Konva.Layer() // Create a fresh layer
     stage.add(layer) // Add the new layer to the stage
     addGrid(Konva, layer) // Can be removed/commented when game is complete
-    renderChoices()
     renderPlayerHand()
     renderComputerHand()
-    
-    
+    if (model.state == "playerBust"){
+        renderPlayerBust();
+    }
+    else if (model.state == "playerTurn") {
+        renderChoices();
+    }
 }
 
 function renderPlayerHand() {
@@ -44,9 +63,11 @@ function renderPlayerHand() {
             draggable: false,
         })
         layer.add(cardImage)
+        
 
-        // Add event listeners
-       
+    
+
+        // Add event listener
     }
 }
 
@@ -58,10 +79,24 @@ function renderComputerHand() {
             image: rawCardBackImage
         })
         if (i==0){
-            cardImage.Image= getRawCardImage(model.compHand[i])
+            cardImage.Image = getRawCardImage(model.compHand[i])
         }
         layer.add(cardImage)
     }
+}
+
+
+function renderPlayerBust(){
+    let busttext = new Konva.Text({
+        x: stage.width() / 2,
+        y: 390,
+        text: 'you bust!!!!',
+        fontSize: 35,
+        fontFamily: 'Calibri',
+        fill: 'red',
+    })
+
+    layer.add(busttext);
 }
 
 
